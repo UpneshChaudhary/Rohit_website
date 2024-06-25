@@ -179,7 +179,7 @@
             </div>
           </li> -->
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+            <a class="nav-link" href="{% url 'contact' %}">Testimonials</a>
           </li>
         </ul>
       </div>
@@ -208,7 +208,7 @@
                     <span class="color-b">204 </span> Mount
                     <br> Olive Road Two</h1>
                   <p class="intro-subtitle intro-price">
-                    <a href="#"><span class="price-a">rent | $ 12.000</span></a>
+                    <a href="#"><span class="price-a"> Coming Soon</span></a>
                   </p>
                 </div>
               </div>
@@ -231,7 +231,7 @@
                     <span class="color-b">204 </span> Rino
                     <br> Venda Road Five</h1>
                   <p class="intro-subtitle intro-price">
-                    <a href="#"><span class="price-a">rent | $ 12.000</span></a>
+                    <a href="#"><span class="price-a"> Coming Soon</span></a>
                   </p>
                 </div>
               </div>
@@ -254,7 +254,7 @@
                     <span class="color-b">204 </span> Alira
                     <br> Roan Road One</h1>
                   <p class="intro-subtitle intro-price">
-                    <a href="#"><span class="price-a">rent | $ 12.000</span></a>
+                    <a href="#"><span class="price-a">Coming Soon</span></a>
                   </p>
                 </div>
               </div>
@@ -358,18 +358,36 @@
   </section> -->
   <!--/ Services End /-->
 
+  <section class="section-about">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="about-img-box">
+            <img src="{% static 'img/Rohit_image.jpeg' %}" alt="" class="img-fluid">
+          </div>
+          <div class="sinse-box">
+            <h3 class="sinse-title">Rohit Monga
+              <span></span>
+              <br></h3>
+            <p>Real-estate Agent</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <!--/ Property Star /-->
+
+<!--/ Property Star /-->
 <section class="section-property section-t8">
   <div class="container">
     <div class="row">
       <div class="col-md-12">
         <div class="title-wrap d-flex justify-content-between">
           <div class="title-box">
-            <h2 class="title-a">Latest Properties</h2>
+            <h2 class="title-a">Latest Listings</h2>
           </div>
           <div class="title-link">
-            <a href="property-grid.html">All Property
+            <a href="property-grid.html">All Listings
               <span class="ion-ios-arrow-forward"></span>
             </a>
           </div>
@@ -381,7 +399,7 @@
       <div class="carousel-item-b">
         <div class="card-box-a card-shadow">
           <div class="img-box-a">
-            <img src="{{ listing.photo_main.url }}" alt="" class="img-a img-fluid">
+            <img src="{{ listing.photo_main.url }}" alt="" class="img-a img-fluid" style="height: 400px;">
           </div>
           <div class="card-overlay">
             <div class="card-overlay-a-content">
@@ -393,7 +411,7 @@
               </div>
               <div class="card-body-a">
                 <div class="price-box d-flex">
-                  <span class="price-a">rent | $ {{ listing.price }}</span>
+                  <span class="price-a"> {{ listing.price }}</span>
                 </div>
                 <a href="property-single.html" class="link-a">Click here to view
                   <span class="ion-ios-arrow-forward"></span>
@@ -431,21 +449,17 @@
 </section>
 <!--/ Property End /-->
 
-
-
-
-
-<!--/ Agents Star /-->
-<section class="section-agents section-t8">
+<!--/ Sold Property Start /-->
+<section class="section-property section-t8">
   <div class="container">
     <div class="row">
       <div class="col-md-12">
         <div class="title-wrap d-flex justify-content-between">
           <div class="title-box">
-            <h2 class="title-a">Best Agents</h2>
+            <h2 class="title-a">Latest Sold Properties</h2>
           </div>
           <div class="title-link">
-            <a href="agents-grid.html">All Agents
+            <a href="property-grid.html">All Sold Properties
               <span class="ion-ios-arrow-forward"></span>
             </a>
           </div>
@@ -453,58 +467,47 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-md-4">
-        <div class="card-box-d">
-          <div class="card-img-d">
-            <img src="{% static 'img/agent-4.jpg' %}" alt="" class="img-d img-fluid">
+      {% for sold_listing in latest_sold_listings %}
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card-box-a card-shadow">
+          <div class="img-box-a">
+            <img src="{{ sold_listing.photo_main.url }}" alt="{{ sold_listing.title }}" class="img-a img-fluid" style="height: 400px;">
           </div>
-          <div class="card-overlay card-overlay-hover">
-            <div class="card-header-d">
-              <div class="card-title-d align-self-center">
-                <h3 class="title-d">
-                  <a href="agent-single.html" class="link-two">Margaret Sotillo
-                    <br> Escala</a>
-                </h3>
+          <div class="card-overlay">
+            <div class="card-overlay-a-content">
+              <div class="card-header-a">
+                <h2 class="card-title-a">
+                  <a href="property-single.html">{{ sold_listing.title }}
+                    <br>{{ sold_listing.address }}</a>
+                </h2>
               </div>
-            </div>
-            <div class="card-body-d">
-              <p class="content-d color-text-a">
-                Sed porttitor lectus nibh, Cras ultricies ligula sed magna dictum porta two.
-              </p>
-              <div class="info-agents color-a">
-                <p>
-                  <strong>Phone: </strong> +54 356 945234</p>
-                <p>
-                  <strong>Email: </strong> agents@example.com</p>
+              <div class="card-body-a">
+                <div class="price-box d-flex">
+                  <span class="price-a"> {{ sold_listing.price }}</span>
+                </div>
+                <a href="property-single.html" class="link-a">Click here to view
+                  <span class="ion-ios-arrow-forward"></span>
+                </a>
               </div>
-            </div>
-            <div class="card-footer-d">
-              <div class="socials-footer d-flex justify-content-center">
-                <ul class="list-inline">
-                  <li class="list-inline-item">
-                    <a href="#" class="link-one">
-                      <i class="fa fa-facebook" aria-hidden="true"></i>
-                    </a>
+              <div class="card-footer-a">
+                <ul class="card-info d-flex justify-content-around">
+                  <li>
+                    <h4 class="card-info-title">Area</h4>
+                    <span>{{ sold_listing.area }}m
+                      <sup>2</sup>
+                    </span>
                   </li>
-                  <li class="list-inline-item">
-                    <a href="#" class="link-one">
-                      <i class="fa fa-twitter" aria-hidden="true"></i>
-                    </a>
+                  <li>
+                    <h4 class="card-info-title">Beds</h4>
+                    <span>{{ sold_listing.bedrooms }}</span>
                   </li>
-                  <li class="list-inline-item">
-                    <a href="#" class="link-one">
-                      <i class="fa fa-instagram" aria-hidden="true"></i>
-                    </a>
+                  <li>
+                    <h4 class="card-info-title">Baths</h4>
+                    <span>{{ sold_listing.bathrooms }}</span>
                   </li>
-                  <li class="list-inline-item">
-                    <a href="#" class="link-one">
-                      <i class="fa fa-pinterest-p" aria-hidden="true"></i>
-                    </a>
-                  </li>
-                  <li class="list-inline-item">
-                    <a href="#" class="link-one">
-                      <i class="fa fa-dribbble" aria-hidden="true"></i>
-                    </a>
+                  <li>
+                    <h4 class="card-info-title">Garages</h4>
+                    <span>{{ sold_listing.garage }}</span>
                   </li>
                 </ul>
               </div>
@@ -512,128 +515,12 @@
           </div>
         </div>
       </div>
-      <div class="col-md-4">
-        <div class="card-box-d">
-          <div class="card-img-d">
-            <img src="{% static 'img/agent-1.jpg' %}" alt="" class="img-d img-fluid">
-          </div>
-          <div class="card-overlay card-overlay-hover">
-            <div class="card-header-d">
-              <div class="card-title-d align-self-center">
-                <h3 class="title-d">
-                  <a href="agent-single.html" class="link-two">Stiven Spilver
-                    <br> Darw</a>
-                </h3>
-              </div>
-            </div>
-            <div class="card-body-d">
-              <p class="content-d color-text-a">
-                Sed porttitor lectus nibh, Cras ultricies ligula sed magna dictum porta two.
-              </p>
-              <div class="info-agents color-a">
-                <p>
-                  <strong>Phone: </strong> +54 356 945234</p>
-                <p>
-                  <strong>Email: </strong> agents@example.com</p>
-              </div>
-            </div>
-            <div class="card-footer-d">
-              <div class="socials-footer d-flex justify-content-center">
-                <ul class="list-inline">
-                  <li class="list-inline-item">
-                    <a href="#" class="link-one">
-                      <i class="fa fa-facebook" aria-hidden="true"></i>
-                    </a>
-                  </li>
-                  <li class="list-inline-item">
-                    <a href="#" class="link-one">
-                      <i class="fa fa-twitter" aria-hidden="true"></i>
-                    </a>
-                  </li>
-                  <li class="list-inline-item">
-                    <a href="#" class="link-one">
-                      <i class="fa fa-instagram" aria-hidden="true"></i>
-                    </a>
-                  </li>
-                  <li class="list-inline-item">
-                    <a href="#" class="link-one">
-                      <i class="fa fa-pinterest-p" aria-hidden="true"></i>
-                    </a>
-                  </li>
-                  <li class="list-inline-item">
-                    <a href="#" class="link-one">
-                      <i class="fa fa-dribbble" aria-hidden="true"></i>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card-box-d">
-          <div class="card-img-d">
-            <img src="{% static 'img/agent-5.jpg' %}" alt="" class="img-d img-fluid">
-          </div>
-          <div class="card-overlay card-overlay-hover">
-            <div class="card-header-d">
-              <div class="card-title-d align-self-center">
-                <h3 class="title-d">
-                  <a href="agent-single.html" class="link-two">Emma Toledo
-                    <br> Cascada</a>
-                </h3>
-              </div>
-            </div>
-            <div class="card-body-d">
-              <p class="content-d color-text-a">
-                Sed porttitor lectus nibh, Cras ultricies ligula sed magna dictum porta two.
-              </p>
-              <div class="info-agents color-a">
-                <p>
-                  <strong>Phone: </strong> +54 356 945234</p>
-                <p>
-                  <strong>Email: </strong> agents@example.com</p>
-              </div>
-            </div>
-            <div class="card-footer-d">
-              <div class="socials-footer d-flex justify-content-center">
-                <ul class="list-inline">
-                  <li class="list-inline-item">
-                    <a href="#" class="link-one">
-                      <i class="fa fa-facebook" aria-hidden="true"></i>
-                    </a>
-                  </li>
-                  <li class="list-inline-item">
-                    <a href="#" class="link-one">
-                      <i class="fa fa-twitter" aria-hidden="true"></i>
-                    </a>
-                  </li>
-                  <li class="list-inline-item">
-                    <a href="#" class="link-one">
-                      <i class="fa fa-instagram" aria-hidden="true"></i>
-                    </a>
-                  </li>
-                  <li class="list-inline-item">
-                    <a href="#" class="link-one">
-                      <i class="fa fa-pinterest-p" aria-hidden="true"></i>
-                    </a>
-                  </li>
-                  <li class="list-inline-item">
-                    <a href="#" class="link-one">
-                      <i class="fa fa-dribbble" aria-hidden="true"></i>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      {% endfor %}
     </div>
   </div>
 </section>
-<!--/ Agents End /-->
+<!--/ Sold Property End /-->
+
 
 
 <!--/ News Star /-->
@@ -769,7 +656,7 @@
           <div class="row">
             <div class="col-sm-12 col-md-6">
               <div class="testimonial-img">
-                <img src="{% static 'img/testimonial-1.jpg' %}" alt="" class="img-fluid">
+                <img src="{% static 'img/post-5.jpg' %}" alt="" class="img-fluid" style="max-height: 370px;">
               </div>
             </div>
             <div class="col-sm-12 col-md-6">
@@ -784,7 +671,7 @@
                 </p>
               </div>
               <div class="testimonial-author-box">
-                <img src="{% static 'img/mini-testimonial-1.jpg' %}" alt="" class="testimonial-avatar">
+                <img src="" alt="" class="testimonial-avatar">
                 <h5 class="testimonial-author">Albert & Erika</h5>
               </div>
             </div>
@@ -822,6 +709,54 @@
   </div>
 </section>
 <!--/ Testimonials End /-->
+
+
+<section>
+  <div class="container mt-5">
+    <!-- Video Carousel -->
+    <div id="myCarousel" class="carousel slide">
+      <div class="carousel-inner">
+          
+          <div class="carousel-item active">
+            <!-- Replace 'VIDEO_ID' with the actual YouTube video ID -->
+            <div class="embed-responsive embed-responsive-16by9">
+              <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/PdDjIiQ-i1k?si=wvoCoH9VgoJMDeWT" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+          </div>
+          <div class="carousel-item">
+              <!-- Replace 'VIDEO_ID' with the actual YouTube video ID -->
+              <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/oPCtzO5K8G8?si=dv-0qUUlaXHpSg6w" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+          </div>
+          <div class="carousel-item">
+              <!-- Replace 'VIDEO_ID' with the actual YouTube video ID -->
+              <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/T7bxGSgQF6M?si=WZ94221GLT7IP1Iq" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+          </div>
+          
+          
+      </div>
+      <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+      </a>
+      <ol class="carousel-indicators">
+          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#myCarousel" data-slide-to="1"></li>
+          <li data-target="#myCarousel" data-slide-to="2"></li>
+          <li data-target="#myCarousel" data-slide-to="3"></li>
+          
+      </ol>
+    </div>
+  </div>
+</section>
+
 
 
   <!--/ footer Star /-->

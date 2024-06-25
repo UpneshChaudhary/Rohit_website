@@ -5,7 +5,12 @@ from .models import Blog
 
 def home(request):
     latest_listings = Listing.objects.filter(is_published=True).order_by('-list_date')[:3]
-    return render(request, 'index.html', {'latest_listings': latest_listings})
+    latest_sold_listings = SoldListing.objects.order_by('-sold_date')[:3]
+    context = {
+        'latest_listings': latest_listings,
+        'latest_sold_listings': latest_sold_listings
+    }
+    return render(request, 'index.html', context)
 
 
 def about(request):

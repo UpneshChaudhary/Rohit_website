@@ -165,7 +165,7 @@
           </li>
           
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+            <a class="nav-link" href="{% url 'contact' %}">Testimonials</a>
           </li>
         </ul>
       </div>
@@ -209,7 +209,7 @@
       <div class="row">
         <div class="col-sm-12">
           <div class="about-img-box">
-            <img src="{% static 'img/slide-about-1.jpg' %}" alt="" class="img-fluid">
+            <img src="{% static 'img/Rohit_image.jpeg' %}" alt="" class="img-fluid">
           </div>
           <div class="sinse-box">
             <h3 class="sinse-title">Rohit Monga
@@ -222,6 +222,16 @@
           <div class="row">
             <div class="col-md-6 col-lg-5">
               <img src="{% static 'img/rohit_sir.jpg' %}" alt="" class="img-fluid">
+              <div class="social-icons-container">
+                <ul class="custom-ul">
+                  <li class="custom-li"><a href="#" class="custom-a"><i class="fa fa-facebook custom-fa" aria-hidden="true"></i></a></li>
+                  <li class="custom-li"><a href="#" class="custom-a"><i class="fa fa-youtube custom-fa" aria-hidden="true"></i></a></li>
+                  <li class="custom-li"><a href="#" class="custom-a"><i class="fa fa-google-plus custom-fa" aria-hidden="true"></i></a></li>
+                  <li class="custom-li"><a href="#" class="custom-a"><i class="fa fa-instagram custom-fa" aria-hidden="true"></i></a></li>
+                </ul>
+              </div>
+              
+              
             </div>
             <div class="col-lg-2  d-none d-lg-block">
               <div class="title-vertical d-flex justify-content-start">
@@ -230,28 +240,22 @@
             </div>
             <div class="col-md-6 col-lg-5 section-md-t3">
               <div class="title-box-d">
-                <h3 class="title-d">Rohit
-                  <span class="color-d">Monga</span>
-                  <br></h3>
+                <h3 class="title-d">Rohit <span class="color-d">Monga</span></h3>
               </div>
               <p class="color-text-a">
-                Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Vivamus magna justo, lacinia eget
-                consectetur sed, convallis
-                at tellus. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Vestibulum
-                ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit
-                neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula.
+                Rohit is described by clients as highly knowledgeable, approachable, and communicative. With a decade-long career in the government finance sector, he brings a wealth of experience and a Master of Accounting and Finance from La Trobe University, Melbourne. Transitioning to real estate to pursue his passion for the industry, Rohit has made a significant impact. In a collaborative effort with his wife, Khush Monga, who has already achieved significant success in the suburbs of Harrisdale, Piara Waters, Southern Rivers, and the surrounding areas, Rohit contributes to a formidable team. Together, they leverage their strengths and expertise to provide comprehensive and top-tier real estate services, ensuring client satisfaction remains at the forefront of their professional pursuits.
               </p>
               <p class="color-text-a">
-                Sed porttitor lectus nibh. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.
-                Mauris blandit aliquet
-                elit, eget tincidunt nibh pulvinar a. Vivamus magna justo, lacinia eget consectetur sed,
-                convallis at tellus.
+                Rohit's exceptional communication skills and highly professional approach are deeply valued by clients who consistently appreciate his outstanding customer service. He is committed to building lasting relationships with clients based on trust, transparency, and communication. Rohit prioritizes understanding the unique needs and goals of each seller, tailoring his approach to create a customized strategy that aligns with their vision. His extensive knowledge of the local real estate market in Perth, WA, goes beyond understanding neighborhood trends; he stays ahead of the latest market dynamics. With Rohit, sellers gain a competitive edge as he strategically positions properties for maximum visibility and value. Known for his empathetic and supportive approach, he consistently strives to exceed client expectations. Highly respected in his key markets, Rohit’s unwavering commitment and client-centric mindset have earned him a solid reputation.
               </p>
+              
             </div>
+            
           </div>
         </div>
       </div>
     </div>
+    
   </section>
   <!--/ About End /-->
 
@@ -415,6 +419,150 @@
     </div>
   </footer>
   <!--/ Footer End /-->
+
+<style>
+  /* Custom container for social icons */
+.social-icons-container {
+  margin: 0;
+  padding: 0;
+  background: #fbfbfb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30vh;
+}
+
+@media (max-width: 600px) {
+  .custom-ul {
+    transform: scale(0.6);
+  }
+}
+
+@media (min-width: 601px) and (max-width: 700px) {
+  .custom-ul {
+    transform: scale(0.7);
+  }
+}
+
+@media (min-width: 701px) and (max-width: 800px) {
+  .custom-ul {
+    transform: scale(0.8);
+  }
+}
+
+.custom-ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+}
+
+.custom-li {
+  margin: 0 40px;
+}
+
+.custom-li .custom-fa {
+  font-size: 40px;
+  color: #555;
+  line-height: 80px;
+  transition: 0.5s;
+}
+
+.custom-a {
+  position: relative;
+  display: block;
+  width: 80px;
+  height: 80px;
+  background: #fff;
+  text-align: center;
+  transform: perspective(1000px) rotate(-30deg) skew(25deg) translate(0, 0);
+  transition: 0.5s;
+  box-shadow: -20px 20px 10px rgba(0, 0, 0, 0.5);
+}
+
+.custom-a::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: -20px;
+  height: 100%;
+  width: 20px;
+  background: #b2b2b2;
+  transition: 0.5s;
+  transform: rotate(0deg) skewY(-45deg);
+}
+
+.custom-a::after {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  left: -10px;
+  height: 20px;
+  width: 100%;
+  background: #e5e5e5;
+  transition: 0.5s;
+  transform: rotate(0deg) skewX(-45deg);
+}
+
+.custom-a:hover {
+  transform: perspective(1000px) rotate(-30deg) skew(25deg) translate(20px, -20px);
+  box-shadow: -50px 50px 50px rgba(0, 0, 0, 0.5);
+}
+
+.custom-li:hover .custom-fa {
+  color: #fff;
+}
+
+.custom-li:hover:nth-child(1) .custom-a {
+  background-color: #3b5999; /* Facebook */
+}
+
+.custom-li:hover:nth-child(1) .custom-a::before {
+  background-color: #2f477a;
+}
+
+.custom-li:hover:nth-child(1) .custom-a::after {
+  background-color: #4e69a3;
+}
+
+.custom-li:hover:nth-child(2) .custom-a {
+  background-color: #FF0000; /* YouTube */
+}
+
+.custom-li:hover:nth-child(2) .custom-a::before {
+  background-color: #CC0000;
+}
+
+.custom-li:hover:nth-child(2) .custom-a::after {
+  background-color: #FF3333;
+}
+
+.custom-li:hover:nth-child(3) .custom-a {
+  background-color: #dd4b39; /* Google Plus */
+}
+
+.custom-li:hover:nth-child(3) .custom-a::before {
+  background-color: #b03c2d;
+}
+
+.custom-li:hover:nth-child(3) .custom-a::after {
+  background-color: #e05d4c;
+}
+
+.custom-li:hover:nth-child(4) .custom-a {
+  background-color: #e4405f; /* Instagram */
+}
+
+.custom-li:hover:nth-child(4) .custom-a::before {
+  background-color: #b6334c;
+}
+
+.custom-li:hover:nth-child(4) .custom-a::after {
+  background-color: #e6536f;
+}
+
+</style>
+  
 
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
   <div id="preloader"></div>
