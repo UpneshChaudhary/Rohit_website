@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-n&g+5jhbytt6nc_7%+(@es-%c7flt5^j)&cslz=69=f13i*!__
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [*]
+ALLOWED_HOSTS = ['*']
 
 
 # CSRF verification settings
