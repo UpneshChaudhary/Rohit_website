@@ -26,14 +26,14 @@ SECRET_KEY = 'django-insecure-n&g+5jhbytt6nc_7%+(@es-%c7flt5^j)&cslz=69=f13i*!__
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [*]
 
 
 # CSRF verification settings
 CSRF_COOKIE_SECURE = True
 CSRF_COOKIE_HTTPONLY = True
 CSRF_COOKIE_SAMESITE = 'Strict'
-#CSRF_TRUSTED_ORIGINS = ['https://khushmonga.com']
+CSRF_TRUSTED_ORIGINS = ['https://mongarohit.com']
 
 # Application definition
 
@@ -85,13 +85,16 @@ WSGI_APPLICATION = 'Rohit_website.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'OPTIONS': {
+            'timeout': 60,  # Increase the timeout to 20 seconds
+        }
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -119,6 +122,8 @@ LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
 
+USE_L10N = True
+
 USE_I18N = True
 
 USE_TZ = True
@@ -131,6 +136,16 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
+
+# Django CORS settings
+CORS_ORIGIN_ALLOW_ALL = True  # Allow requests from all origins
+# Or specify specific origins to allow
+CORS_ORIGIN_WHITELIST = [
+    'https://mongarohit.com',
+    # Add other allowed origins as needed
+]
+
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
