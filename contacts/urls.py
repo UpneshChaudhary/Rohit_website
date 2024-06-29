@@ -4,5 +4,6 @@ from . import views
 
 urlpatterns = [
     path('Enquiry/', csrf_exempt(views.contact), name='Enquiry'),
+    path('appraisal/', csrf_exempt(views.appraisal), name='appraisal'),
     #path('send_bulk_email/', csrf_exempt(views.send_bulk_email_view), name='send_bulk_email'),
 ]
