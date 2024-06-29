@@ -2,13 +2,17 @@ from django.shortcuts import get_object_or_404, render
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from .models import Listing, SoldListing
 from .models import Blog
+from .models import Feedback
 
 def home(request):
     latest_listings = Listing.objects.filter(is_published=True).order_by('-list_date')[:3]
     latest_sold_listings = SoldListing.objects.order_by('-sold_date')[:3]
+    latest_feedbacks = Feedback.objects.order_by('-date')[:3]  # Fetch the latest 3 feedbacks
+
     context = {
         'latest_listings': latest_listings,
-        'latest_sold_listings': latest_sold_listings
+        'latest_sold_listings': latest_sold_listings,
+        'latest_feedbacks': latest_feedbacks,
     }
     return render(request, 'index.html', context)
 
@@ -16,10 +20,6 @@ def home(request):
 def about(request):
     return render(request, 'about.html')
 
-
-
-def contact(request):
-    return render(request, 'contact.html')
 
 
 def listings(request):
@@ -79,3 +79,14 @@ def blog_list(request):
     
     # Render the blog.html template with the blogs and recent_posts context
     return render(request, 'blog.html', {'page_obj': page_obj, 'recent_posts': recent_posts})
+
+
+
+def contact(request):
+    feedback_list = Feedback.objects.all()
+    paginator = Paginator(feedback_list, 5)  # Show 5 feedbacks per page
+
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    return render(request, 'contact.html', {'page_obj': page_obj})

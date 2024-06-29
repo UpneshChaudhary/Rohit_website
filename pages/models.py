@@ -137,3 +137,13 @@ class Blog(models.Model):
     
     def __str__(self):
         return self.title
+
+
+class Feedback(models.Model):
+    image = models.ImageField(upload_to='feedback_images/')
+    review = models.TextField()
+    author = models.CharField(max_length=255)
+    date = models.DateField(auto_now_add=True)
+
+    def __str__(self):
+        return self.author

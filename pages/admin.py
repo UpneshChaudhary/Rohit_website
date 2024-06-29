@@ -3,6 +3,7 @@ from django.db import models
 from .models import Listing, SoldListing
 from .models import Blog
 from ckeditor.widgets import CKEditorWidget
+from .models import Feedback
 
 class ListingAdmin(admin.ModelAdmin):
     list_display = ('title', 'address', 'price', 'is_published', 'list_date', 'sold')
@@ -40,3 +41,5 @@ class BlogAdmin(admin.ModelAdmin):
 
 # Register the Blog model with the BlogAdmin
 admin.site.register(Blog, BlogAdmin)
+
+admin.site.register(Feedback)
