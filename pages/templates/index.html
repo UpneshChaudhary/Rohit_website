@@ -545,7 +545,7 @@
             <h2 class="title-a">Latest Listings</h2>
           </div>
           <div class="title-link">
-            <a href="property-grid.html">All Listings
+            <a href="{% url 'listings' %}">All Listings
               <span class="ion-ios-arrow-forward"></span>
             </a>
           </div>
@@ -563,7 +563,7 @@
             <div class="card-overlay-a-content">
               <div class="card-header-a">
                 <h2 class="card-title-a">
-                  <a href="property-single.html">{{ listing.title }}
+                  <a href="{% url 'listing_detail' listing.id %}">{{ listing.title }}
                     <br /> {{ listing.address }}</a>
                 </h2>
               </div>
@@ -571,7 +571,7 @@
                 <div class="price-box d-flex">
                   <span class="price-a"> {{ listing.price }}</span>
                 </div>
-                <a href="property-single.html" class="link-a">Click here to view
+                <a href="{% url 'listing_detail' listing.id %}" class="link-a">Click here to view
                   <span class="ion-ios-arrow-forward"></span>
                 </a>
               </div>
@@ -633,7 +633,7 @@
             <h2 class="title-a">Latest Sold Properties</h2>
           </div>
           <div class="title-link">
-            <a href="property-grid.html">All Sold Properties
+            <a href="{% url 'sold' %}">All Sold Properties
               <span class="ion-ios-arrow-forward"></span>
             </a>
           </div>
@@ -651,7 +651,7 @@
             <div class="card-overlay-a-content">
               <div class="card-header-a">
                 <h2 class="card-title-a">
-                  <a href="property-single.html">{{ sold_listing.title }}
+                  <a href="{% url 'sold_detail' sold_listing.id %}">{{ sold_listing.title }}
                     <br>{{ sold_listing.address }}</a>
                 </h2>
               </div>
@@ -659,7 +659,7 @@
                 <div class="price-box d-flex">
                   <span class="price-a"> {{ sold_listing.price }}</span>
                 </div>
-                <a href="property-single.html" class="link-a">Click here to view
+                <a href="{% url 'sold_detail' sold_listing.id %}" class="link-a">Click here to view
                   <span class="ion-ios-arrow-forward"></span>
                 </a>
               </div>
@@ -707,7 +707,7 @@
             <h2 class="title-a">Latest Blogs</h2>
           </div>
           <div class="title-link">
-            <a href="blog-grid.html">All Blogs
+            <a href="{% url 'blogs' %}">All Blogs
               <span class="ion-ios-arrow-forward"></span>
             </a>
           </div>
@@ -822,7 +822,7 @@
             <h2 class="title-a">Testimonials</h2>
           </div>
           <div class="title-link">
-            <a href="blog-grid.html">All Feedbacks
+            <a href="{% url 'contacts'}">All Feedbacks
               <span class="ion-ios-arrow-forward"></span>
             </a>
           </div>
@@ -925,7 +925,7 @@
     
       <a href="{% url 'blogs' %}">Blogs</a>
       
-      <a href="{% url 'contact' %}">Contact Us</a>
+      <a href="{% url 'contact' %}">Testimonials</a>
     </p>
 
     <p class="footer-company-name" style="color:#ffffff">Rohit Monga</p>
@@ -940,7 +940,7 @@
 
     <div>
       <i class="fa fa-phone"></i>
-      <p>+61 0405870742</p>
+      <p>+61 0413253244</p>
     </div>
 
     <div>
@@ -982,10 +982,10 @@
 
     <div class="footer-icons">
 
-      <a href="#"><i class="fa fa-facebook"></i></a>
-      <a href="#"><i class="fa fa-instagram"></i></a>
-      <a href="#"><i class="fa fa-youtube"></i></a>
-      <a href="#"><i class="fa fa-envelope"></i></a>
+      <a href="https://www.facebook.com/rohitmongappre/"><i class="fa fa-facebook"></i></a>
+      <a href="https://www.instagram.com/teammonga.sales/"><i class="fa fa-instagram"></i></a>
+      <a href="https://www.youtube.com/@teammongappre-new4252"><i class="fa fa-youtube"></i></a>
+      <a href="admin@mongarohit.com"><i class="fa fa-envelope"></i></a>
 
     </div>
 
